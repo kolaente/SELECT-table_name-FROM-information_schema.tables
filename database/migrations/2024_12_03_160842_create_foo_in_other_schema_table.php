@@ -11,6 +11,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
+
+        // This exists only to make the issue reproducible. In my original case the other table was created by an extension.
+
         DB::unprepared('CREATE SCHEMA IF NOT EXISTS other_schema');
 
         DB::unprepared('create table if not exists other_schema.foo_in_other_schema ("id" bigserial not null primary key, "bar" text not null)');
