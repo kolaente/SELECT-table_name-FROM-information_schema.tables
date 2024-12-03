@@ -1,0 +1,23 @@
+services:
+    web:
+        image: dev
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        depends_on:
+            - db
+        environment:
+            - UID=1000
+        ports:
+            - 127.0.0.1:8080:80
+        volumes:
+            - .:/app
+        tty: true
+    db:
+        image: postgres:17
+        ports:
+            - 127.0.0.1:5433:5432
+        environment:
+            - POSTGRES_PASSWORD=bug_report
+            - POSTGRES_USER=bug_report
+            - POSTGRES_DB=bug_report
