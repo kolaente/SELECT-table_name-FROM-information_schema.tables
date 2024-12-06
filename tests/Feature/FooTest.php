@@ -11,6 +11,8 @@ class FooTest extends TestCase
 {
     use DatabaseTruncation;
 
+    protected $connectionsToTruncate = ['pgsql'];
+
     public function test_example(): void
     {
         $this->assertTrue(true);
