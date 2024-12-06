@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+    protected $connection = 'pgsql_other_schema';
+
     /**
      * Run the migrations.
      */
@@ -24,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('foo_in_other_schema');
+        Schema::dropIfExists('other_schema.foo_in_other_schema');
     }
 };
